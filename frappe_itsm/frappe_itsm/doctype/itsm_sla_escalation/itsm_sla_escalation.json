@@ -1,0 +1,72 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-05-16 19:01:29.876025",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "trigger_at_percent",
+  "action",
+  "notify_roles",
+  "notify_users",
+  "reassign_to_team",
+  "priority_upgrade"
+ ],
+ "fields": [
+  {
+   "fieldname": "trigger_at_percent",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Trigger At (% of SLA)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "action",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Action",
+   "options": "Notify Only\nReassign + Notify\nEscalate Priority\nEscalate Priority + Reassign",
+   "reqd": 1
+  },
+  {
+   "description": "Comma separated roles",
+   "fieldname": "notify_roles",
+   "fieldtype": "Text",
+   "label": "Notify Roles"
+  },
+  {
+   "description": "Comma separated user emails",
+   "fieldname": "notify_users",
+   "fieldtype": "Text",
+   "label": "Notify Users"
+  },
+  {
+   "fieldname": "reassign_to_team",
+   "fieldtype": "Link",
+   "label": "Reassign To Team",
+   "options": "ITSM Team"
+  },
+  {
+   "fieldname": "priority_upgrade",
+   "fieldtype": "Select",
+   "label": "Upgrade Priority To",
+   "options": "P1-Critical\nP2-High\nP3-Moderate"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-05-16 19:01:29.876025",
+ "modified_by": "Administrator",
+ "module": "Frappe ITSM",
+ "name": "ITSM SLA Escalation",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

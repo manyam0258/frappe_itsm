@@ -1,0 +1,168 @@
+{
+ "charts": [],
+ "content": "[{\"id\": \"header_1\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\">Incident Management</span>\", \"level\": 4}}, {\"id\": \"card_incident\", \"type\": \"card\", \"data\": {\"card_name\": \"Incident Management\"}}, {\"id\": \"header_2\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\">SLA Engine</span>\", \"level\": 4}}, {\"id\": \"card_sla\", \"type\": \"card\", \"data\": {\"card_name\": \"SLA Engine\"}}, {\"id\": \"header_3\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\">Core</span>\", \"level\": 4}}, {\"id\": \"card_core\", \"type\": \"card\", \"data\": {\"card_name\": \"Core Setup\"}}]",
+ "creation": "2026-05-16 19:14:19.278012",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "hide_custom": 0,
+ "icon": "check",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Frappe ITSM",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Incident Management",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "only_for": "",
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "ITSM Incident",
+   "link_count": 0,
+   "link_to": "ITSM Incident",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "ITSM Priority Matrix",
+   "link_count": 0,
+   "link_to": "ITSM Priority Matrix",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "SLA Engine",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "only_for": "",
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "ITSM SLA Policy",
+   "link_count": 0,
+   "link_to": "ITSM SLA Policy",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "ITSM SLA Instance",
+   "link_count": 0,
+   "link_to": "ITSM SLA Instance",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "ITSM Working Hours",
+   "link_count": 0,
+   "link_to": "ITSM Working Hours",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "ITSM Holiday List",
+   "link_count": 0,
+   "link_to": "ITSM Holiday List",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Core Setup",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "only_for": "",
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "ITSM Category",
+   "link_count": 0,
+   "link_to": "ITSM Category",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "ITSM Sub Category",
+   "link_count": 0,
+   "link_to": "ITSM Sub Category",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "ITSM Team",
+   "link_count": 0,
+   "link_to": "ITSM Team",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "ITSM Location",
+   "link_count": 0,
+   "link_to": "ITSM Location",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "ITSM Tag",
+   "link_count": 0,
+   "link_to": "ITSM Tag",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-05-16 19:14:19.278012",
+ "modified_by": "Administrator",
+ "module": "Frappe ITSM",
+ "name": "Frappe ITSM",
+ "number_cards": [],
+ "owner": "Administrator",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 0.0,
+ "shortcuts": [],
+ "title": "Frappe ITSM"
+}

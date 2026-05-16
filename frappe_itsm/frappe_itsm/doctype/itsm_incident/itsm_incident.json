@@ -1,0 +1,408 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-05-16 18:58:34.847396",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "title",
+  "status",
+  "incident_type",
+  "description",
+  "category",
+  "sub_category",
+  "item_affected",
+  "impact",
+  "urgency",
+  "priority",
+  "company",
+  "department",
+  "source_channel",
+  "requester_section",
+  "raised_by",
+  "caller",
+  "contact_email",
+  "contact_phone",
+  "assignment_section",
+  "assigned_team",
+  "assigned_to",
+  "is_major_incident",
+  "major_incident_manager",
+  "parent_incident",
+  "resolution_section",
+  "workaround",
+  "resolution_code",
+  "resolution_notes",
+  "reopened_count",
+  "sla_section",
+  "sla_status",
+  "response_due",
+  "resolution_due",
+  "first_response_at",
+  "resolution_at",
+  "closed_at",
+  "on_hold_reason",
+  "on_hold_since",
+  "csat_sent",
+  "csat_score",
+  "tables_section",
+  "watch_list",
+  "linked_cis",
+  "custom_fields_section"
+ ],
+ "fields": [
+  {
+   "default": "INC-.YYYY.-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "INC-.YYYY.-.#####"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Subject",
+   "reqd": 1
+  },
+  {
+   "default": "New",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "New\nAssigned\nIn Progress\nPending\nResolved\nClosed\nCancelled",
+   "reqd": 1
+  },
+  {
+   "default": "Incident",
+   "fieldname": "incident_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Incident Type",
+   "options": "Service Request\nIncident\nMajor Incident",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "in_list_view": 1,
+   "label": "Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "label": "Category",
+   "options": "ITSM Category",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sub_category",
+   "fieldtype": "Link",
+   "label": "Sub-Category",
+   "options": "ITSM Sub Category"
+  },
+  {
+   "fieldname": "item_affected",
+   "fieldtype": "Data",
+   "label": "Item Affected"
+  },
+  {
+   "fieldname": "impact",
+   "fieldtype": "Select",
+   "label": "Impact",
+   "options": "1-Enterprise Wide\n2-Department Wide\n3-Group Wide\n4-Individual",
+   "reqd": 1
+  },
+  {
+   "fieldname": "urgency",
+   "fieldtype": "Select",
+   "label": "Urgency",
+   "options": "1-Critical\n2-High\n3-Medium\n4-Low",
+   "reqd": 1
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority",
+   "options": "P1-Critical\nP2-High\nP3-Moderate\nP4-Low\nP5-Planning",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department"
+  },
+  {
+   "default": "Web Portal",
+   "fieldname": "source_channel",
+   "fieldtype": "Select",
+   "label": "Source Channel",
+   "options": "Email\nWeb Portal\nWhatsApp\nChat\nPhone\nWalk-in\nAPI",
+   "reqd": 1
+  },
+  {
+   "fieldname": "requester_section",
+   "fieldtype": "Section Break",
+   "label": "Requester Info"
+  },
+  {
+   "fieldname": "raised_by",
+   "fieldtype": "Link",
+   "label": "Raised By",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "caller",
+   "fieldtype": "Link",
+   "label": "Caller",
+   "options": "User"
+  },
+  {
+   "fieldname": "contact_email",
+   "fieldtype": "Data",
+   "label": "Contact Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "contact_phone",
+   "fieldtype": "Data",
+   "label": "Contact Phone",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "assignment_section",
+   "fieldtype": "Section Break",
+   "label": "Assignment"
+  },
+  {
+   "fieldname": "assigned_team",
+   "fieldtype": "Link",
+   "label": "Assigned Team",
+   "options": "ITSM Team"
+  },
+  {
+   "fieldname": "assigned_to",
+   "fieldtype": "Link",
+   "label": "Assigned To",
+   "options": "User"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_major_incident",
+   "fieldtype": "Check",
+   "label": "Is Major Incident"
+  },
+  {
+   "depends_on": "eval:doc.is_major_incident==1",
+   "fieldname": "major_incident_manager",
+   "fieldtype": "Link",
+   "label": "Major Incident Manager",
+   "options": "User"
+  },
+  {
+   "fieldname": "parent_incident",
+   "fieldtype": "Link",
+   "label": "Parent Incident",
+   "options": "ITSM Incident"
+  },
+  {
+   "fieldname": "resolution_section",
+   "fieldtype": "Section Break",
+   "label": "Resolution & Links"
+  },
+  {
+   "fieldname": "workaround",
+   "fieldtype": "Text Editor",
+   "label": "Workaround"
+  },
+  {
+   "depends_on": "eval:doc.status=='Resolved' || doc.status=='Closed'",
+   "fieldname": "resolution_code",
+   "fieldtype": "Link",
+   "label": "Resolution Code",
+   "options": "ITSM Resolution Code"
+  },
+  {
+   "depends_on": "eval:doc.status=='Resolved' || doc.status=='Closed'",
+   "fieldname": "resolution_notes",
+   "fieldtype": "Text Editor",
+   "label": "Resolution Notes"
+  },
+  {
+   "fieldname": "reopened_count",
+   "fieldtype": "Int",
+   "label": "Reopened Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sla_section",
+   "fieldtype": "Section Break",
+   "label": "SLA & Metrics"
+  },
+  {
+   "fieldname": "sla_status",
+   "fieldtype": "Select",
+   "label": "SLA Status",
+   "options": "Within SLA\nAt Risk\nBreached\nPaused\nFulfilled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "response_due",
+   "fieldtype": "Datetime",
+   "label": "Response Due",
+   "read_only": 1
+  },
+  {
+   "fieldname": "resolution_due",
+   "fieldtype": "Datetime",
+   "label": "Resolution Due",
+   "read_only": 1
+  },
+  {
+   "fieldname": "first_response_at",
+   "fieldtype": "Datetime",
+   "label": "First Response At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "resolution_at",
+   "fieldtype": "Datetime",
+   "label": "Resolved At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "closed_at",
+   "fieldtype": "Datetime",
+   "label": "Closed At",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.status=='Pending'",
+   "fieldname": "on_hold_reason",
+   "fieldtype": "Select",
+   "label": "On Hold Reason",
+   "options": "Awaiting User\nAwaiting Vendor\nAwaiting Change\nScheduled Maintenance\nOther"
+  },
+  {
+   "fieldname": "on_hold_since",
+   "fieldtype": "Datetime",
+   "label": "On Hold Since",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "csat_sent",
+   "fieldtype": "Check",
+   "label": "CSAT Sent",
+   "read_only": 1
+  },
+  {
+   "fieldname": "csat_score",
+   "fieldtype": "Select",
+   "label": "CSAT Score",
+   "options": "\n1\n2\n3\n4\n5",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tables_section",
+   "fieldtype": "Section Break",
+   "label": "Watch List & CIs"
+  },
+  {
+   "fieldname": "watch_list",
+   "fieldtype": "Table",
+   "label": "Watch List",
+   "options": "ITSM Watch List"
+  },
+  {
+   "fieldname": "linked_cis",
+   "fieldtype": "Table",
+   "label": "Linked CIs",
+   "options": "ITSM Incident CI"
+  },
+  {
+   "fieldname": "custom_fields_section",
+   "fieldtype": "Section Break",
+   "label": "Custom Fields"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-05-16 18:58:34.847396",
+ "modified_by": "Administrator",
+ "module": "Frappe ITSM",
+ "name": "ITSM Incident",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "ITSM Agent",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "ITSM Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "ITSM Employee",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

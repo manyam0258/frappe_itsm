@@ -1,0 +1,83 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:matrix_name",
+ "creation": "2026-05-16 18:58:34.362126",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "matrix_name",
+  "company",
+  "impact",
+  "urgency",
+  "priority"
+ ],
+ "fields": [
+  {
+   "fieldname": "matrix_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Matrix Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "impact",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Impact",
+   "options": "1-Enterprise Wide\n2-Department Wide\n3-Group Wide\n4-Individual",
+   "reqd": 1
+  },
+  {
+   "fieldname": "urgency",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Urgency",
+   "options": "1-Critical\n2-High\n3-Medium\n4-Low",
+   "reqd": 1
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Priority",
+   "options": "P1-Critical\nP2-High\nP3-Moderate\nP4-Low\nP5-Planning",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-05-16 18:58:34.362126",
+ "modified_by": "Administrator",
+ "module": "Frappe ITSM",
+ "name": "ITSM Priority Matrix",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

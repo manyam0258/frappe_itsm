@@ -148,23 +148,11 @@ app_license = "mit"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"frappe_itsm.tasks.all"
-# 	],
-# 	"daily": [
-# 		"frappe_itsm.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"frappe_itsm.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"frappe_itsm.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"frappe_itsm.tasks.monthly"
-# 	],
-# }
+scheduler_events = {
+	"all": [
+		"frappe_itsm.frappe_itsm.sla_evaluator.evaluate_slas"
+	]
+}
 
 # Testing
 # -------
