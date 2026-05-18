@@ -1,6 +1,7 @@
 import frappe
 from frappe.utils import now_datetime, get_datetime
 
+@frappe.whitelist()
 def evaluate_slas():
     """Background job to evaluate SLA status for open SLAs"""
     active_slas = frappe.get_all("ITSM SLA Instance", filters={"sla_status": ["in", ["Within SLA", "At Risk", "Paused"]]}, fields=["name", "document_type", "document_name", "response_due", "resolution_due", "sla_status"])

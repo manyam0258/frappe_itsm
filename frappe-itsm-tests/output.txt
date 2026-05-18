@@ -1,0 +1,48 @@
+
+Running 2 tests using 2 workers
+
+[1A[2K[1/2] tests/incident_lifecycle.spec.js:17:3 › Incident Lifecycle & SLA › Create Incident and verify Priority Calculation
+[1A[2K[2/2] tests/incident_lifecycle.spec.js:38:3 › Incident Lifecycle & SLA › Incident Workflow Transitions (Assigned -> In Progress -> Resolved)
+[1A[2K  1) tests/incident_lifecycle.spec.js:17:3 › Incident Lifecycle & SLA › Create Incident and verify Priority Calculation 
+
+    Error: apiRequestContext.post: connect ECONNREFUSED ::1:8000
+    Call log:
+    [2m  - → POST http://localhost:8000/api/method/login[22m
+    [2m    - user-agent: Playwright/1.60.0 (x64; ubuntu 24.04) node/24.7[22m
+    [2m    - accept: */*[22m
+    [2m    - accept-encoding: gzip,deflate,br[22m
+    [2m    - content-type: application/x-www-form-urlencoded[22m
+    [2m    - content-length: 27[22m
+
+        at apiRequestContext.post: connect ECONNREFUSED ::1:8000
+        at /home/demo/frappe-bench-explore/apps/frappe_itsm/frappe-itsm-tests/tests/incident_lifecycle.spec.js:12:22
+
+    Error Context: test-results/incident_lifecycle-Inciden-92ca4-verify-Priority-Calculation/error-context.md
+
+    Error Context: test-results/incident_lifecycle-Inciden-92ca4-verify-Priority-Calculation/error-context.md
+
+
+[1A[2K  2) tests/incident_lifecycle.spec.js:38:3 › Incident Lifecycle & SLA › Incident Workflow Transitions (Assigned -> In Progress -> Resolved) 
+
+    Error: apiRequestContext.post: connect ECONNREFUSED ::1:8000
+    Call log:
+    [2m  - → POST http://localhost:8000/api/method/login[22m
+    [2m    - user-agent: Playwright/1.60.0 (x64; ubuntu 24.04) node/24.7[22m
+    [2m    - accept: */*[22m
+    [2m    - accept-encoding: gzip,deflate,br[22m
+    [2m    - content-type: application/x-www-form-urlencoded[22m
+    [2m    - content-length: 27[22m
+
+        at apiRequestContext.post: connect ECONNREFUSED ::1:8000
+        at /home/demo/frappe-bench-explore/apps/frappe_itsm/frappe-itsm-tests/tests/incident_lifecycle.spec.js:12:22
+
+    Error Context: test-results/incident_lifecycle-Inciden-19d9c-d---In-Progress---Resolved-/error-context.md
+
+    Error Context: test-results/incident_lifecycle-Inciden-19d9c-d---In-Progress---Resolved-/error-context.md
+
+
+[1A[2K  2 failed
+    tests/incident_lifecycle.spec.js:17:3 › Incident Lifecycle & SLA › Create Incident and verify Priority Calculation 
+    tests/incident_lifecycle.spec.js:38:3 › Incident Lifecycle & SLA › Incident Workflow Transitions (Assigned -> In Progress -> Resolved) 
+
+[36m  Serving HTML report at http://localhost:34857. Press Ctrl+C to quit.[39m

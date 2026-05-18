@@ -34,5 +34,34 @@ This walkthrough covers the foundation, Incident Management, and SLA modules bui
 > [!NOTE]
 > For the SLA Evaluation, since it is a background task, you can test it by manually running `bench --site aaa execute frappe_itsm.frappe_itsm.sla_evaluator.evaluate_slas`.
 
+### 4. Problem Management & Change Management (Sprint 5)
+- Created **Problem Management DocTypes**: `ITSM Problem`, `ITSM Problem Task`, `ITSM Problem Incident`.
+- Implemented Python logic: Auto-generates a Known Error Database (KEDB) article draft when `workaround_published` is checked.
+- Created **Change Management DocTypes**: `ITSM Change`, `ITSM Change Task`, `ITSM Change Risk Question`, `ITSM CAB Meeting`, and `ITSM Blackout Window`.
+- Implemented Python logic for Change Management:
+  - **Risk Score Calculation**: Dynamically computes risk score (0-100) and automatically assigns a Risk Level (Very Low to Very High) based on the filled risk questions.
+  - **Blackout Window Validation**: Warns the user on save if the Change planned dates overlap with a scheduled `ITSM Blackout Window`.
+- Generated **State Machine Workflows** for both Problem and Change modules.
+
+### 5. Frontend Portals (Sprint 4)
+- Configured a Vue 3 SPA using `frappe-ui-starter` in `/frontend`.
+- Built the **Agent Portal**:
+  - Main Layout with Sidebar and Topbar.
+  - Interactive Dashboard showing KPIs.
+  - Incident List View mapping data securely from Frappe REST APIs.
+- Built the **Employee Self-Service Portal**:
+  - Landing page for end-users to search knowledge or request services.
+  - "My Tickets" list component.
+
+> [!TIP]
+> **Getting Started with Portals & New Modules**
+> 1. Run the frontend development server: `cd apps/frappe_itsm/frontend && yarn dev`
+> 2. Open `http://localhost:8080/frontend/agent/dashboard` in your browser.
+> 3. To test Problem/Change backend logic, create a new `ITSM Change` and fill out the Risk Assessment section to see the auto-calculated score.
+
+> [!NOTE]
+> **Playwright E2E Tests**
+> The `frappe-itsm-tests` directory has been scaffolded and a basic `sprint5.spec.js` test suite has been implemented to verify DocType structures and API functionality using Playwright as defined in `PLAYWRIGHT_SETUP.md`.
+
 ## Next Steps
-Once you validate the local functionality for the Incident and SLA features, we can move on to completing the Portal/Dashboard portions of Phase 1 or transition straight to the Change/Problem modules. Let me know your feedback on the local test!
+Phase 1 is now fully complete! All ITSM core modules (Incident, SLA, Problem, Change) and initial Vue 3 Portals are scaffolded and functional. We are now ready to move onto Phase 2: Catalog and CMDB.

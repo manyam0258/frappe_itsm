@@ -13,18 +13,65 @@ Based on the Product Requirements Document (PRD) for the `frappe_itsm` custom ap
 
 ---
 
+# Immediate Execution Plan: Phase 1 Sprint 4+
+*Focus: Problem Management, Change Management, and Vue 3 Portals.*
+
+## Proposed Changes
+
+### Problem Management
+We will create the core DocTypes to handle Problem lifecycles and Root Cause Analysis.
+- **[NEW] DocType `ITSM Problem`**: Includes fields for Category, Priority, status, workaround, and RCA details.
+- **[NEW] DocType `ITSM Problem Incident`**: Child table mapping problems to multiple incidents.
+- **[NEW] DocType `ITSM Problem Task`**: Child table for assigning parallel investigation tasks.
+- **[NEW] Python Logic**: Auto-create KB Draft when `workaround_published` is checked.
+
+### Change Management
+We will build out the ITIL v4 Change Enablement workflow, CAB management, and Risk calculation.
+- **[NEW] DocType `ITSM Change`**: Core RFC tracking with Change Types (Standard, Normal, Emergency), Risk Level, and Rollback Plans.
+- **[NEW] DocType `ITSM Change Task`**: Tasks for pre, impl, and post phases.
+- **[NEW] DocType `ITSM CAB Meeting`**: For scheduling CABs. Includes child tables for `ITSM CAB Member` and `ITSM CAB Agenda Item`.
+- **[NEW] DocType `ITSM Blackout Window`**: To define restricted deployment periods.
+- **[NEW] Python Logic**: 
+  - *Risk Calculation*: Auto-calculate `risk_score` from the risk assessment questionnaire.
+  - *Blackout Validation*: Server script to warn/block if Change `start_datetime` to `end_datetime` overlaps with an active Blackout Window.
+
+### Portals & Reporting
+We will configure the `frontend/` Vue 3 SPA using `frappe-ui`.
+- **[NEW] Vue Router**: Setup routes for `/agent` (Agent Portal) and `/self-service` (Employee Portal).
+- **[NEW] Agent Portal Views**: Incident List, Problem List, Change List, and a central Dashboard component.
+- **[NEW] Employee Portal Views**: Landing page, "My Tickets" tracker, and a Ticket Submission form.
+
+## Verification Plan
+### Playwright E2E Test Suite (Next Immediate Step)
+To fully complete Phase 1, we will implement comprehensive end-to-end testing using Playwright in the `frappe-itsm-tests` directory.
+
+#### Test 1: Incident Lifecycle & SLA (`tests/incident_lifecycle.spec.js`)
+- **API/UI Flow:** Agent creates an Incident -> Workflow transition to 'Assigned' -> 'In Progress' -> 'Resolved' -> 'Closed'.
+- **Validation:** SLA Response and Resolution timers are started, evaluated, and correctly logged in `ITSM SLA Instance`. Priority auto-calculation is verified.
+
+#### Test 2: Problem Lifecycle & KEDB (`tests/problem_lifecycle.spec.js`)
+- **API/UI Flow:** Problem is created -> Incident is linked -> RCA (5-Whys) is filled out -> Workaround is published.
+- **Validation:** The Python trigger correctly creates a Draft `ITSM Knowledge Article` when the workaround is published.
+
+#### Test 3: Change Enablement & CAB (`tests/change_lifecycle.spec.js`)
+- **API/UI Flow:** Normal Change is submitted -> Risk Assessment is filled -> Workflow transitions to 'Pending Review' -> 'CAB Scheduled'.
+- **Validation:** Risk Score is accurately calculated (0-100) and mapped to Risk Level. Blackout window validation throws a warning if dates overlap.
+
+#### Test 4: Vue 3 Portals UI (`tests/portals_ui.spec.js`)
+- **UI Flow:** End-User accesses the Employee Portal -> Raises a Ticket -> Navigates to "My Tickets" -> Agent logs into Agent Portal -> Dashboard loads -> Incident List displays the newly raised ticket.
+- **Validation:** The Vue router functions correctly, and data bindings successfully pull from Frappe REST APIs.
+
+---
+
 ## Phase 1: ITSM Core
 **Duration:** Weeks 1–12 (3 months)
 **Focus:** Foundational architecture, Core Ticketing, and SLA Management.
 
-### Key Deliverables:
-- **Core Architecture:** Setup `frappe_itsm` app scaffold, DocType scaffolding, Frappe hooks, naming series, and base permission roles.
-- **Incident Management:** Full implementation of `ITSM Incident` DocType, Incident state machine (Frappe Workflow), Priority Matrix, Impact x Urgency logic.
-- **SLA Engine:** `ITSM SLA Policy`, `ITSM SLA Instance`, working hours, holiday lists, response/resolution due calculation, background evaluator jobs, and escalation engine.
-- **Problem Management:** Full implementation of `ITSM Problem`, RCA form (5-Whys, Fishbone), KEDB lookup, workaround publishing, and problem tasks.
-- **Change Management:** Full implementation of `ITSM Change`, risk assessment calculation, CAB meeting management, blackout window validation, and rollback workflows.
-- **Portals & Reporting:** Basic Agent Portal (Vue SPA), Employee Self-Service Portal v1, Operations Dashboard, SLA Compliance Report, Change Management Dashboard, and Email integration.
-- **Automation:** Basic Workflow Engine (Automation rules with basic action types).
+### Key Deliverables & Sprints:
+- **Sprint 1 (Core Architecture):** Setup `frappe_itsm` app scaffold, DocType scaffolding, Frappe hooks, naming series, and base permission roles.
+- **Sprint 2 (Incident Management):** Full implementation of `ITSM Incident` DocType, Incident state machine (Frappe Workflow), Priority Matrix, Impact x Urgency logic.
+- **Sprint 3 (SLA Engine):** `ITSM SLA Policy`, `ITSM SLA Instance`, working hours, holiday lists, response/resolution due calculation, background evaluator jobs, and escalation engine.
+- **Sprint 4 (Portals & Vue SPA):** Setup `frappe-ui` frontend, build Agent Portal (Vue SPA), Employee Self-Service Portal v1, Operations Dashboard, and basic API endpoints for Vue integration. *(Problem & Change management deferred to Phase 1.5/Sprint 5 to focus purely on the frontend delivery).*
 
 ---
 

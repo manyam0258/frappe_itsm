@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\": \"header_1\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\">Incident Management</span>\", \"level\": 4}}, {\"id\": \"card_incident\", \"type\": \"card\", \"data\": {\"card_name\": \"Incident Management\"}}, {\"id\": \"header_2\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\">SLA Engine</span>\", \"level\": 4}}, {\"id\": \"card_sla\", \"type\": \"card\", \"data\": {\"card_name\": \"SLA Engine\"}}, {\"id\": \"header_3\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\">Core</span>\", \"level\": 4}}, {\"id\": \"card_core\", \"type\": \"card\", \"data\": {\"card_name\": \"Core Setup\"}}]",
+ "content": "[{\"id\": \"header_1\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\">Incident Management</span>\", \"level\": 4}}, {\"id\": \"card_incident\", \"type\": \"card\", \"data\": {\"card_name\": \"Incident Management\"}}, {\"id\": \"header_2\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\">SLA Engine</span>\", \"level\": 4}}, {\"id\": \"card_sla\", \"type\": \"card\", \"data\": {\"card_name\": \"SLA Engine\"}}, {\"id\": \"header_3\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\">Core</span>\", \"level\": 4}}, {\"id\": \"card_core\", \"type\": \"card\", \"data\": {\"card_name\": \"Core Setup\"}}, {\"id\": \"header_problem\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\">Problem Management</span>\", \"level\": 4}}, {\"id\": \"card_problem\", \"type\": \"card\", \"data\": {\"card_name\": \"Problem Management\"}}, {\"id\": \"header_change\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\">Change Management</span>\", \"level\": 4}}, {\"id\": \"card_change\", \"type\": \"card\", \"data\": {\"card_name\": \"Change Management\"}}, {\"id\": \"header_kb\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\">Knowledge Base</span>\", \"level\": 4}}, {\"id\": \"card_kb\", \"type\": \"card\", \"data\": {\"card_name\": \"Knowledge Base\"}}]",
  "creation": "2026-05-16 19:14:19.278012",
  "custom_blocks": [],
  "docstatus": 0,
@@ -19,7 +19,6 @@
    "link_count": 0,
    "link_type": "DocType",
    "onboard": 0,
-   "only_for": "",
    "type": "Card Break"
   },
   {
@@ -45,11 +44,108 @@
   {
    "hidden": 0,
    "is_query_report": 0,
+   "label": "Problem Management",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "ITSM Problem",
+   "link_count": 0,
+   "link_to": "ITSM Problem",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "ITSM Problem Task",
+   "link_count": 0,
+   "link_to": "ITSM Problem Task",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "ITSM Problem Incident",
+   "link_count": 0,
+   "link_to": "ITSM Problem Incident",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Change Management",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "ITSM Change",
+   "link_count": 0,
+   "link_to": "ITSM Change",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "ITSM Change Task",
+   "link_count": 0,
+   "link_to": "ITSM Change Task",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "ITSM CAB Meeting",
+   "link_count": 0,
+   "link_to": "ITSM CAB Meeting",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "ITSM Blackout Window",
+   "link_count": 0,
+   "link_to": "ITSM Blackout Window",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "ITSM Change Risk Question",
+   "link_count": 0,
+   "link_to": "ITSM Change Risk Question",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
    "label": "SLA Engine",
    "link_count": 0,
    "link_type": "DocType",
    "onboard": 0,
-   "only_for": "",
    "type": "Card Break"
   },
   {
@@ -99,7 +195,6 @@
    "link_count": 0,
    "link_type": "DocType",
    "onboard": 0,
-   "only_for": "",
    "type": "Card Break"
   },
   {
@@ -153,7 +248,7 @@
    "type": "Link"
   }
  ],
- "modified": "2026-05-16 19:14:19.278012",
+ "modified": "2026-05-18 13:34:39.646429",
  "modified_by": "Administrator",
  "module": "Frappe ITSM",
  "name": "Frappe ITSM",

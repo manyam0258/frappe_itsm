@@ -1,0 +1,121 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "CAB-.YYYY.-.###",
+ "creation": "2026-05-18 12:44:15.207478",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "meeting_type",
+  "status",
+  "scheduled_datetime",
+  "duration_minutes",
+  "cb_1",
+  "location",
+  "cab_chair",
+  "quorum_required",
+  "sb_1",
+  "agenda_changes",
+  "cab_members",
+  "sb_2",
+  "meeting_notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "meeting_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Meeting Type",
+   "options": "Regular CAB\nEmergency CAB (ECAB)\nPost-Implementation Review",
+   "reqd": 1
+  },
+  {
+   "default": "Scheduled",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Meeting Status",
+   "options": "Scheduled\nIn Progress\nCompleted\nCancelled"
+  },
+  {
+   "fieldname": "scheduled_datetime",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Scheduled Date & Time",
+   "reqd": 1
+  },
+  {
+   "default": "60",
+   "fieldname": "duration_minutes",
+   "fieldtype": "Int",
+   "label": "Duration (mins)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cb_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location / Link"
+  },
+  {
+   "fieldname": "cab_chair",
+   "fieldtype": "Link",
+   "label": "CAB Chair",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "default": "51",
+   "fieldname": "quorum_required",
+   "fieldtype": "Int",
+   "label": "Quorum Required (%)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sb_1",
+   "fieldtype": "Section Break",
+   "label": "Agenda & Members"
+  },
+  {
+   "fieldname": "agenda_changes",
+   "fieldtype": "Table",
+   "label": "Agenda Changes",
+   "options": "ITSM CAB Agenda Item"
+  },
+  {
+   "fieldname": "cab_members",
+   "fieldtype": "Table",
+   "label": "CAB Members",
+   "options": "ITSM CAB Member"
+  },
+  {
+   "fieldname": "sb_2",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "meeting_notes",
+   "fieldtype": "Text Editor",
+   "label": "Meeting Notes"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-05-18 12:45:21.370640",
+ "modified_by": "Administrator",
+ "module": "Frappe ITSM",
+ "name": "ITSM CAB Meeting",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
