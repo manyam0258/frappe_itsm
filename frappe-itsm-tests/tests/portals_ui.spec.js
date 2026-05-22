@@ -2,7 +2,37 @@ const { test, expect } = require('@playwright/test');
 
 test.describe('Vue 3 Portals UI E2E', () => {
 
+  test.beforeEach(async ({ page }) => {
+    // Monitor console logs and errors in the page
+    page.on('console', msg => console.log(`PAGE LOG [${msg.type()}]:`, msg.text()));
+    page.on('pageerror', err => console.error('PAGE EXCEPTION:', err.message));
+
+    // Log in as Administrator using page.request (shares browser context cookies)
+    const loginRes = await page.request.post('http://localhost:8080/api/method/login', {
+      form: {
+        usr: 'Administrator',
+        pwd: 'admin'
+      }
+    });
+    expect(loginRes.ok()).toBeTruthy();
+  });
+
   test('Employee Self-Service Portal Routing & Rendering', async ({ page }) => {
+    // Seed an incident so the portal shows tickets instead of "You don't have any open tickets."
+    const createRes = await page.request.post('http://localhost:8080/api/resource/ITSM Incident', {
+      data: {
+        title: 'PW_TEST_Portal Ticket',
+        category: 'Hardware',
+        impact: '4-Individual',
+        urgency: '4-Low',
+        description: 'Need a mouse',
+        company: 'Mindgraph Technologies Pvt Ltd',
+        caller: 'Administrator',
+        raised_by: 'Administrator'
+      }
+    });
+    expect(createRes.ok()).toBeTruthy();
+
     // 1. Navigate to root, which redirects to /agent/dashboard
     await page.goto('http://localhost:8080/');
     await page.waitForTimeout(1000);
@@ -27,7 +57,7 @@ test.describe('Vue 3 Portals UI E2E', () => {
     await page.getByRole('link', { name: 'My Tickets' }).click();
     await page.waitForTimeout(1000);
     
-    await expect(page.locator('h1').first()).toContainText('My Tickets');
+    await expect(page.locator('main h1').first()).toContainText('My Tickets');
     
     // 4. Verify table headers
     await expect(page.getByText('Ticket ID')).toBeVisible();
@@ -46,6 +76,8 @@ test.describe('Vue 3 Portals UI E2E', () => {
     await page.waitForTimeout(1000);
     
     // Verify table rendering
-    await expect(page.locator('h1').first()).toContainText('Incidents');
+    await expect(page.locator('main h1').first()).toContainText('Incidents');
   });
 });
+
+

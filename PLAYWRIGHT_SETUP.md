@@ -13,7 +13,7 @@ npx playwright install chromium      # installs the browser binary
 Create a `.env` file (never commit this):
 
 ```bash
-FRAPPE_BASE_URL=http://192.168.252.6/:8000
+FRAPPE_BASE_URL=http://192.168.252.6:8007
 FRAPPE_ADMIN_USER=Administrator
 FRAPPE_ADMIN_PASS=demo@123
 ```

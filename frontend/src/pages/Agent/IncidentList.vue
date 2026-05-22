@@ -6,10 +6,10 @@
     </div>
 
     <div class="bg-white rounded-lg shadow-sm border overflow-hidden">
-      <div v-if="incidents.loading" class="p-8 text-center text-gray-500">
+      <div v-if="$resources.incidents.loading" class="p-8 text-center text-gray-500">
         Loading incidents...
       </div>
-      <div v-else-if="incidents.data && incidents.data.length === 0" class="p-8 text-center text-gray-500">
+      <div v-else-if="$resources.incidents.data && $resources.incidents.data.length === 0" class="p-8 text-center text-gray-500">
         No incidents found.
       </div>
       <table v-else class="w-full text-left border-collapse">
@@ -23,7 +23,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="incident in incidents.data" :key="incident.name" class="border-b hover:bg-gray-50 cursor-pointer">
+          <tr v-for="incident in $resources.incidents.data" :key="incident.name" class="border-b hover:bg-gray-50 cursor-pointer">
             <td class="p-4 text-blue-600 font-medium">{{ incident.name }}</td>
             <td class="p-4">{{ incident.title }}</td>
             <td class="p-4">

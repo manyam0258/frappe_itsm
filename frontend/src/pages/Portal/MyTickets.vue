@@ -2,10 +2,10 @@
   <div>
     <h1 class="text-2xl font-bold mb-6">My Tickets</h1>
     <div class="bg-white rounded-lg shadow-sm border overflow-hidden">
-      <div v-if="tickets.loading" class="p-8 text-center text-gray-500">
+      <div v-if="$resources.tickets.loading" class="p-8 text-center text-gray-500">
         Loading tickets...
       </div>
-      <div v-else-if="tickets.data && tickets.data.length === 0" class="p-8 text-center text-gray-500">
+      <div v-else-if="$resources.tickets.data && $resources.tickets.data.length === 0" class="p-8 text-center text-gray-500">
         You don't have any open tickets.
       </div>
       <table v-else class="w-full text-left border-collapse">
@@ -18,7 +18,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="ticket in tickets.data" :key="ticket.name" class="border-b hover:bg-gray-50 cursor-pointer">
+          <tr v-for="ticket in $resources.tickets.data" :key="ticket.name" class="border-b hover:bg-gray-50 cursor-pointer">
             <td class="p-4 text-blue-600 font-medium">{{ ticket.name }}</td>
             <td class="p-4">{{ ticket.title }}</td>
             <td class="p-4">

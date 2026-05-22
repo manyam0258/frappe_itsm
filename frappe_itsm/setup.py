@@ -76,3 +76,18 @@ def create_doctypes():
     
     frappe.db.commit()
 
+
+def seed_data():
+    # Insert ITSM Category
+    for cat in ["Hardware", "Software", "Network", "Database", "Cloud"]:
+        if not frappe.db.exists("ITSM Category", cat):
+            frappe.get_doc({"doctype": "ITSM Category", "category_name": cat}).insert(ignore_permissions=True)
+            print(f"Created category {cat}")
+
+    # Insert Company if missing
+    if not frappe.db.exists("Company", "Mindgraph Technologies Pvt Ltd"):
+        frappe.get_doc({"doctype": "Company", "company_name": "Mindgraph Technologies Pvt Ltd", "default_currency": "USD"}).insert(ignore_permissions=True)
+
+    frappe.db.commit()
+
+
