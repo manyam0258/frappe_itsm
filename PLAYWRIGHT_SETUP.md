@@ -62,7 +62,7 @@ npm run test:report
 
 ## 5. Using with Frappe Assistant Core (MCP in IDE)
 
-Your Frappe AC MCP at `https://192.168.252.6:8002` exposes direct Frappe API access.
+Your Frappe AC MCP at `https://192.168.252.6:8007` exposes direct Frappe API access.
 You can trigger test runs from the IDE using the MCP via:
 
 ```

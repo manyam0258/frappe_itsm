@@ -10,6 +10,13 @@ def create_doctypes():
             "custom": 1,
             "autoname": "CHG-.YYYY.-.#####",
             "naming_rule": "Expression",
+            "permissions": [
+                {"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1},
+                {"role": "ITSM Agent", "read": 1, "write": 1, "create": 1},
+                {"role": "ITSM Manager", "read": 1, "write": 1, "create": 1, "delete": 1},
+                {"role": "ITSM Change Manager", "read": 1, "write": 1, "create": 1, "delete": 1},
+                {"role": "ITSM Admin", "read": 1, "write": 1, "create": 1, "delete": 1}
+            ],
             "fields": [
                 {"fieldname": "title", "fieldtype": "Data", "label": "Change Title", "reqd": 1, "in_list_view": 1},
                 {"fieldname": "change_type", "fieldtype": "Select", "label": "Change Type", "options": "Standard\nNormal\nEmergency", "reqd": 1, "in_list_view": 1},
@@ -50,7 +57,8 @@ def create_doctypes():
                 {"fieldname": "close_code", "fieldtype": "Select", "label": "Close Code", "options": "Successful\nSuccessful with Issues\nUnsuccessful - Rolled Back\nUnsuccessful - Partial\nCancelled"},
                 {"fieldname": "close_notes", "fieldtype": "Text Editor", "label": "Close Notes"},
                 {"fieldname": "pir_required", "fieldtype": "Check", "label": "PIR Required"},
-                {"fieldname": "pir_notes", "fieldtype": "Text Editor", "label": "PIR Notes", "depends_on": "eval:doc.pir_required==1"}
+                {"fieldname": "pir_notes", "fieldtype": "Text Editor", "label": "PIR Notes", "depends_on": "eval:doc.pir_required==1"},
+                {"fieldname": "linked_problem", "fieldtype": "Link", "label": "Linked Problem", "options": "ITSM Problem"}
             ]
         },
         {
@@ -85,6 +93,13 @@ def create_doctypes():
             "module": "Frappe ITSM",
             "custom": 1,
             "autoname": "field:title",
+            "permissions": [
+                {"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1},
+                {"role": "ITSM Agent", "read": 1},
+                {"role": "ITSM Manager", "read": 1, "write": 1, "create": 1, "delete": 1},
+                {"role": "ITSM Change Manager", "read": 1, "write": 1, "create": 1, "delete": 1},
+                {"role": "ITSM Admin", "read": 1, "write": 1, "create": 1, "delete": 1}
+            ],
             "fields": [
                 {"fieldname": "title", "fieldtype": "Data", "label": "Title", "unique": 1, "reqd": 1, "in_list_view": 1},
                 {"fieldname": "start_datetime", "fieldtype": "Datetime", "label": "Start Date & Time", "reqd": 1, "in_list_view": 1},
@@ -124,6 +139,14 @@ def create_doctypes():
             "custom": 1,
             "autoname": "CAB-.YYYY.-.###",
             "naming_rule": "Expression",
+            "permissions": [
+                {"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1},
+                {"role": "ITSM Agent", "read": 1, "write": 1, "create": 1},
+                {"role": "ITSM Manager", "read": 1, "write": 1, "create": 1, "delete": 1},
+                {"role": "ITSM Change Manager", "read": 1, "write": 1, "create": 1, "delete": 1},
+                {"role": "ITSM CAB Member", "read": 1, "write": 1},
+                {"role": "ITSM Admin", "read": 1, "write": 1, "create": 1, "delete": 1}
+            ],
             "fields": [
                 {"fieldname": "meeting_type", "fieldtype": "Select", "label": "Meeting Type", "options": "Regular CAB\nEmergency CAB (ECAB)\nPost-Implementation Review", "reqd": 1, "in_list_view": 1},
                 {"fieldname": "status", "fieldtype": "Select", "label": "Meeting Status", "options": "Scheduled\nIn Progress\nCompleted\nCancelled", "default": "Scheduled", "in_list_view": 1},

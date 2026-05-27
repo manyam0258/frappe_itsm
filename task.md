@@ -76,5 +76,5 @@
   - `[x]` Change State Machine / Workflow
   - `[x]` Python Risk Score Calculation
   - `[x]` Python Blackout Window Validation
-- `[ ]` **E2E Testing (Backend & API)**
-  - `[ ]` Write tests for Problem and Change logic
+- `[x]` **E2E Testing (Backend & API)**
+  - `[x]` Write tests for Problem and Change logic

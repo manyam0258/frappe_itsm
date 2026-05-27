@@ -69,3 +69,17 @@ class ITSMChange(Document):
         else:
             self.blackout_conflict = 0
             self.conflict_details = None
+
+    def on_update(self):
+        self.notify_linked_problem()
+
+    def notify_linked_problem(self):
+        if self.status in ["Completed", "Closed"] and self.linked_problem:
+            if frappe.db.exists("ITSM Problem", self.linked_problem):
+                prob = frappe.get_doc("ITSM Problem", self.linked_problem)
+                if prob.status not in ["Resolved", "Closed"]:
+                    prob.status = "Resolved"
+                    prob.permanent_fix = f"{self.close_notes} (Change {self.name})" if self.close_notes else f"Fix deployed and completed in Change {self.name}"
+                    prob.resolution_notes = f"Resolved via permanent fix implementation in Change {self.name}"
+                    prob.save(ignore_permissions=True)
+                    frappe.msgprint(f"Notified and resolved linked Problem: {prob.name}", alert=True)

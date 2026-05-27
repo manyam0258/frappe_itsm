@@ -1,0 +1,39 @@
+
+Running 9 tests using 1 worker
+
+[1A[2K[1/9] tests/change_lifecycle.spec.js:16:3 › Change Lifecycle & Risk Assessment › Create Change, Assess Risk, and Check Blackout
+[1A[2K[2/9] tests/incident_lifecycle.spec.js:17:3 › Incident Lifecycle & SLA › Create Incident and verify Priority Calculation
+[1A[2K[3/9] tests/incident_lifecycle.spec.js:38:3 › Incident Lifecycle & SLA › Incident Workflow Transitions (Assigned -> In Progress -> Resolved)
+[1A[2K[4/9] tests/incident_to_problem_change.spec.js:18:3 › Incident to Problem to Change E2E Lifecycle › Should handle complete Incident -> Problem -> Change lifecycle flow
+[1A[2K[5/9] tests/portals_ui.spec.js:20:3 › Vue 3 Portals UI E2E › Employee Self-Service Portal Routing & Rendering
+[1A[2K[2m[WebServer] [22m(node:99642) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+[2m[WebServer] [22m(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[1A[2Ktests/portals_ui.spec.js:20:3 › Vue 3 Portals UI E2E › Employee Self-Service Portal Routing & Rendering
+PAGE LOG [log]: [vite] connecting...
+
+[1A[2KPAGE LOG [log]: [vite] connected.
+
+[1A[2K[2m[WebServer] [22mBrowserslist: caniuse-lite is outdated. Please run:
+[2m[WebServer] [22m  npx browserslist@latest --update-db
+[2m[WebServer] [22m  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+
+[1A[2KPAGE LOG [log]: [vite] connecting...
+
+[1A[2KPAGE LOG [log]: [vite] connected.
+
+[1A[2K[6/9] tests/portals_ui.spec.js:67:3 › Vue 3 Portals UI E2E › Agent Portal Routing & Incident List
+[1A[2Ktests/portals_ui.spec.js:67:3 › Vue 3 Portals UI E2E › Agent Portal Routing & Incident List
+PAGE LOG [log]: [vite] connecting...
+
+[1A[2KPAGE LOG [log]: [vite] connected.
+
+[1A[2K[7/9] tests/problem_lifecycle.spec.js:16:3 › Problem Lifecycle & KEDB › Create Problem, Fill RCA, and Publish Workaround to KEDB
+[1A[2K[8/9] tests/sprint5.spec.js:23:3 › Sprint 5 API E2E Tests › Should be able to get ITSM Problem DocType metadata
+[1A[2K[9/9] tests/sprint5.spec.js:39:3 › Sprint 5 API E2E Tests › Should be able to get ITSM Change DocType metadata
+[1A[2K  9 passed (24.6s)
+
+To open last HTML report run:
+[36m[39m
+[36m  npx playwright show-report[39m
+[36m[39m

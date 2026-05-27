@@ -7,6 +7,7 @@ from frappe.model.document import Document
 class ITSMProblem(Document):
     def on_update(self):
         self.publish_to_kedb()
+        self.resolve_linked_incidents()
         
     def publish_to_kedb(self):
         # Only trigger if workaround_published is checked and workaround text exists
@@ -29,3 +30,23 @@ class ITSMProblem(Document):
             else:
                 # Mock implementation for Phase 1 since KB is Phase 2
                 frappe.msgprint("Workaround Published to KEDB. (Phase 2 Knowledge Base will automatically draft an article).", alert=True, indicator="green")
+
+    def resolve_linked_incidents(self):
+        if self.status in ["Resolved", "Closed"] and self.linked_incidents:
+            res_code = "Resolved by Problem"
+            if not frappe.db.exists("ITSM Resolution Code", res_code):
+                frappe.get_doc({
+                    "doctype": "ITSM Resolution Code",
+                    "resolution_code": res_code,
+                    "description": "Resolved via root cause fix in linked Problem"
+                }).insert(ignore_permissions=True)
+                
+            for item in self.linked_incidents:
+                if frappe.db.exists("ITSM Incident", item.incident):
+                    inc = frappe.get_doc("ITSM Incident", item.incident)
+                    if inc.status not in ["Resolved", "Closed", "Cancelled"]:
+                        inc.status = "Resolved"
+                        inc.resolution_code = res_code
+                        inc.resolution_notes = f"Resolved via Problem {self.name}. Notes: {self.resolution_notes}" if self.resolution_notes else f"Resolved via linked Problem: {self.name}"
+                        inc.save(ignore_permissions=True)
+                        frappe.msgprint(f"Automatically resolved linked Incident: {inc.name}", alert=True)

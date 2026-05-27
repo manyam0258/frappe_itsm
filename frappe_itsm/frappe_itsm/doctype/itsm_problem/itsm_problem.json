@@ -31,7 +31,8 @@
   "closed_at",
   "pir_completed_at",
   "problem_tasks",
-  "linked_incidents"
+  "linked_incidents",
+  "linked_change"
  ],
  "fields": [
   {
@@ -178,18 +179,83 @@
    "fieldtype": "Table",
    "label": "Linked Incidents",
    "options": "ITSM Problem Incident"
+  },
+  {
+   "fieldname": "linked_change",
+   "fieldtype": "Link",
+   "label": "Linked RFC",
+   "options": "ITSM Change"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-05-18 12:45:18.805464",
+ "modified": "2026-05-27 16:00:16.119585",
  "modified_by": "Administrator",
  "module": "Frappe ITSM",
  "name": "ITSM Problem",
  "naming_rule": "Expression",
  "owner": "Administrator",
- "permissions": [],
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "ITSM Agent",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "ITSM Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "ITSM Senior Agent",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "ITSM Admin",
+   "share": 1,
+   "write": 1
+  }
+ ],
  "row_format": "Dynamic",
  "rows_threshold_for_grid_search": 20,
  "sort_field": "modified",

@@ -84,6 +84,12 @@ def seed_data():
             frappe.get_doc({"doctype": "ITSM Category", "category_name": cat}).insert(ignore_permissions=True)
             print(f"Created category {cat}")
 
+    # Insert ITSM Team
+    for team in ["IT Service Desk", "Network Team", "Software Team", "Database Team", "Hardware Team"]:
+        if not frappe.db.exists("ITSM Team", team):
+            frappe.get_doc({"doctype": "ITSM Team", "team_name": team}).insert(ignore_permissions=True)
+            print(f"Created team {team}")
+
     # Insert Company if missing
     if not frappe.db.exists("Company", "Mindgraph Technologies Pvt Ltd"):
         frappe.get_doc({"doctype": "Company", "company_name": "Mindgraph Technologies Pvt Ltd", "default_currency": "USD"}).insert(ignore_permissions=True)

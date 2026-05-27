@@ -10,6 +10,13 @@ def create_doctypes():
             "custom": 1,
             "autoname": "PRB-.YYYY.-.#####",
             "naming_rule": "Expression",
+            "permissions": [
+                {"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1},
+                {"role": "ITSM Agent", "read": 1, "write": 1, "create": 1},
+                {"role": "ITSM Manager", "read": 1, "write": 1, "create": 1, "delete": 1},
+                {"role": "ITSM Senior Agent", "read": 1, "write": 1, "create": 1},
+                {"role": "ITSM Admin", "read": 1, "write": 1, "create": 1, "delete": 1}
+            ],
             "fields": [
                 {"fieldname": "title", "fieldtype": "Data", "label": "Problem Summary", "reqd": 1, "in_list_view": 1},
                 {"fieldname": "status", "fieldtype": "Select", "label": "Status", "options": "New\nAssess\nRoot Cause Analysis\nFix in Progress\nKnown Error\nResolved\nClosed", "default": "New", "in_list_view": 1},
@@ -37,7 +44,8 @@ def create_doctypes():
                 {"fieldname": "sb_3", "fieldtype": "Section Break", "label": "Resolution & Closure"},
                 {"fieldname": "resolution_notes", "fieldtype": "Text Editor", "label": "Resolution Notes"},
                 {"fieldname": "closed_at", "fieldtype": "Datetime", "label": "Closed At", "read_only": 1},
-                {"fieldname": "pir_completed_at", "fieldtype": "Datetime", "label": "PIR Completed At", "read_only": 1}
+                {"fieldname": "pir_completed_at", "fieldtype": "Datetime", "label": "PIR Completed At", "read_only": 1},
+                {"fieldname": "linked_change", "fieldtype": "Link", "label": "Linked RFC", "options": "ITSM Change"}
             ]
         },
         {
