@@ -134,7 +134,8 @@ def create_doctypes():
                 {"fieldname": "response_due", "label": "Response Due", "fieldtype": "Datetime", "read_only": 1},
                 {"fieldname": "resolution_due", "label": "Resolution Due", "fieldtype": "Datetime", "read_only": 1},
                 {"fieldname": "sla_status", "label": "SLA Status", "fieldtype": "Select", "options": "Within SLA\nAt Risk\nBreached\nPaused\nFulfilled", "read_only": 1},
-                {"fieldname": "hold_duration", "label": "Hold Duration (mins)", "fieldtype": "Float", "read_only": 1}
+                {"fieldname": "hold_duration", "label": "Hold Duration (mins)", "fieldtype": "Float", "read_only": 1},
+                {"fieldname": "triggered_escalations", "label": "Triggered Escalations", "fieldtype": "Small Text", "read_only": 1}
             ],
             "permissions": [{"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1}]
         },
@@ -159,6 +160,14 @@ def create_doctypes():
             doc.insert()
             print(f"Created DocType {dt['name']}")
         else:
-            print(f"DocType {dt['name']} already exists")
+            doc = frappe.get_doc("DocType", dt["name"])
+            doc.fields = []
+            for f in dt.get("fields", []):
+                doc.append("fields", f)
+            doc.permissions = []
+            for p in dt.get("permissions", []):
+                doc.append("permissions", p)
+            doc.save(ignore_permissions=True)
+            print(f"Updated DocType {dt['name']}")
     
     frappe.db.commit()

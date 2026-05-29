@@ -13,6 +13,7 @@
   "category",
   "problem_owner",
   "assigned_team",
+  "assigned_to",
   "cb_1",
   "error_code",
   "pir_required",
@@ -75,6 +76,12 @@
    "fieldtype": "Link",
    "label": "Assigned Team",
    "options": "ITSM Team"
+  },
+  {
+   "fieldname": "assigned_to",
+   "fieldtype": "Link",
+   "label": "Assigned To",
+   "options": "User"
   },
   {
    "fieldname": "cb_1",
@@ -260,5 +267,6 @@
  "rows_threshold_for_grid_search": 20,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

@@ -5,7 +5,7 @@ test.describe('Sprint 5 API E2E Tests', () => {
 
   test.beforeAll(async ({ playwright }) => {
     apiContext = await playwright.request.newContext({
-      baseURL: 'http://192.168.252.6:8007',
+      baseURL: process.env.FRAPPE_BASE_URL || 'http://192.168.252.6:8007',
     });
     
     // Login

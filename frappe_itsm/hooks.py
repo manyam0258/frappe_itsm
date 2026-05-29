@@ -137,13 +137,17 @@ app_license = "mit"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+	"ITSM Incident": {
+		"before_save": "frappe_itsm.frappe_itsm.utils.assignment.handle_workflow_assignments"
+	},
+	"ITSM Problem": {
+		"before_save": "frappe_itsm.frappe_itsm.utils.assignment.handle_workflow_assignments"
+      },
+	"ITSM Change": {
+		"before_save": "frappe_itsm.frappe_itsm.utils.assignment.handle_workflow_assignments"
+	}
+}
 
 # Scheduled Tasks
 # ---------------

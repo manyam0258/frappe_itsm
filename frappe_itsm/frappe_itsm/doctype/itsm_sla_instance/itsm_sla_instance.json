@@ -16,7 +16,8 @@
   "response_due",
   "resolution_due",
   "sla_status",
-  "hold_duration"
+  "hold_duration",
+  "triggered_escalations"
  ],
  "fields": [
   {
@@ -84,12 +85,18 @@
    "fieldtype": "Float",
    "label": "Hold Duration (mins)",
    "read_only": 1
+  },
+  {
+   "fieldname": "triggered_escalations",
+   "fieldtype": "Small Text",
+   "label": "Triggered Escalations",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-05-16 19:02:05.955057",
+ "modified": "2026-05-29 14:22:44.556343",
  "modified_by": "Administrator",
  "module": "Frappe ITSM",
  "name": "ITSM SLA Instance",

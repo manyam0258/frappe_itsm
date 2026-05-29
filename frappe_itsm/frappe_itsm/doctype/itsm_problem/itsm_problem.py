@@ -5,9 +5,20 @@ import frappe
 from frappe.model.document import Document
 
 class ITSMProblem(Document):
+    def before_save(self):
+        self.set_problem_owner_from_incident()
+
     def on_update(self):
         self.publish_to_kedb()
         self.resolve_linked_incidents()
+
+    def set_problem_owner_from_incident(self):
+        if not self.problem_owner and self.linked_incidents:
+            first_inc = self.linked_incidents[0].incident
+            if first_inc:
+                owner = frappe.db.get_value("ITSM Incident", first_inc, "owner")
+                if owner:
+                    self.problem_owner = owner
         
     def publish_to_kedb(self):
         # Only trigger if workaround_published is checked and workaround text exists

@@ -78,3 +78,42 @@
   - `[x]` Python Blackout Window Validation
 - `[x]` **E2E Testing (Backend & API)**
   - `[x]` Write tests for Problem and Change logic
+
+# Phase 1, Sprint 6: Workflow-Assignment Engine
+
+- `[x]` **Workflow-Assignment Hook**
+  - `[x]` Create `apps/frappe_itsm/frappe_itsm/frappe_itsm/utils/assignment.py` with dynamic assignment logic
+  - `[x]` Register `before_save` hooks in `hooks.py`
+- `[x]` **E2E Testing**
+  - `[x]` Write Playwright test verifying that workflow transition triggers assignment rules
+
+# Phase 2 Transition & Phase 1 Gaps
+
+- `[x]` **SLA Engine Calculations**
+  - `[x]` Update `ITSM SLA Instance` to include `triggered_escalations` field
+  - `[x]` Implement timezone and calendar-aware business hour calculation in `calculate_sla_due`
+  - `[x]` Implement `At Risk` state update and SLA breach evaluation
+  - `[x]` Trigger escalations (email, prioritize, reassign) and store triggered states
+- `[x]` **Knowledge Base Integration**
+  - `[x]` Define and register `ITSM Knowledge Article` DocType
+  - `[x]` Link workaround publish trigger in `itsm_problem.py` to create real draft articles
+  - `[x]` Seed KB articles detailing Incident, SLA, Change, and Workflow developments
+- `[x]` **Duplicate Scanning**
+  - `[x]` Implement `check_for_duplicates` in `itsm_incident.py` to check categories/callers
+  - `[x]` Warning alerts and linking duplicates via `parent_incident`
+- `[x]` **CAB Email Voting**
+  - `[x]` Add HMAC-SHA256 signature voting URL generation and verification logic
+  - `[x]` Implement whitelisted guest api `record_cab_vote` to check quorum and change decisions
+  - `[x]` Implement hook to automatically email members when Change is `CAB Scheduled`
+- `[x]` **CMDB Structure & BFS Traversal**
+  - `[x]` Define and register `ITSM CI` and `ITSM CI Relationship` DocTypes
+  - `[x]` Write BFS traversal logic to find all upstream dependencies
+- `[x]` **Service Catalog**
+  - `[x]` Define and register `ITSM Catalog Item` and `ITSM Request Item` (RITM) DocTypes
+- `[x]` **Playwright Config & Spec Refactoring**
+  - `[x]` Create `.env` file in tests directory
+  - `[x]` Refactor `playwright.config.js` to load `.env` variables
+  - `[x]` Update all test spec files to use environment variables
+- `[x]` **E2E Testing & Verification**
+  - `[x]` Add test cases for SLA, duplicate scanning, guest voting, and CMDB
+  - `[x]` Run test suite to verify success

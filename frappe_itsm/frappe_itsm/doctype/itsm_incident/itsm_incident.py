@@ -7,7 +7,29 @@ from frappe.model.document import Document
 class ITSMIncident(Document):
 	def before_save(self):
 		self.calculate_priority()
+		self.check_for_duplicates()
 		
+	def check_for_duplicates(self):
+		if self.is_new() or self.has_value_changed("category") or self.has_value_changed("caller"):
+			if not self.category or not self.caller:
+				return
+			
+			duplicate = frappe.db.get_value(
+				"ITSM Incident",
+				{
+					"category": self.category,
+					"caller": self.caller,
+					"status": ["in", ["New", "Assigned", "In Progress", "Pending"]],
+					"name": ["!=", self.name or ""]
+				},
+				"name"
+			)
+			
+			if duplicate:
+				if not self.parent_incident:
+					self.parent_incident = duplicate
+				frappe.msgprint(f"Warning: A potential duplicate incident was detected ({duplicate}). This incident has been linked to it.", alert=True, indicator="orange")
+
 	def calculate_priority(self):
 		if not self.impact or not self.urgency:
 			return
